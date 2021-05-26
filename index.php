@@ -73,6 +73,11 @@
         ?>
                     <!-- Etape finale : A afficher si "oui" a été répondu à la question 3 ou si l'étape 4 a été résolue -->
                     <p class="mt-5">Merci pour votre notation :⭐⭐⭐⚫⚫ </p> <!-- le nombre d'étoiles représente le nombre de points cumulés -->
+                    
+                    <p class="mt-5">
+                        <a href="index.php?step=0" role="button" class="btn btn-danger">Recommencer</a>
+                    </p>
+        
         <?php
                 }
                 if($_GET['step'] == 'q3non'){
@@ -81,6 +86,8 @@
                     <p>Votre problème n'a pas été résolu.</p>
                     <p>Pour être rappelé, entrez votre numéro de téléphone dans le clavier virtuel et validez :</p>
                     <!-- Coder ici un clavier numérique permettant de saisir le numéro de téléphone -->
+                    <input type="number" pattern="[0-9]*" inputmode="numeric">
+
 
                     <!-- Afficher ici le numéro de téléphone qui s'affiche au fur et à mesure de la saisie-->
                     <p>Votre numéro : #numéro de téléphone saisi#</p>
