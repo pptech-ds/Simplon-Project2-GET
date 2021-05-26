@@ -1,2 +1,4 @@
-# Simplon-Projet2-20210524
-Formation Web Dev Back-End PHP - Projet: Réaliser un questionnaire de satisfaction
+# La description du projet.
+# La configuration requise.
+# Le guide d'installation.
+# Toutes autres informations utiles.
