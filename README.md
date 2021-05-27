@@ -1,5 +1,5 @@
-# Project Description
-All description is in PDF file in docs repo
+# Project Specification
+![Project Specification](docs/Projet_php_-_GET_-_Fiche_apprenant-page-001.jpg)
 
 # Pre-requisites
 HTML5 and PHP7

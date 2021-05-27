@@ -43,33 +43,58 @@
                     <h2>Question 1</h2>
                     <p>L'agent a-t-il été agréable ?</p>
 
-                    <a href="index.php?step=2" role="button" class="btn btn-success">oui</a> <!-- rapporte 2 point -->
-                    <a href="index.php?step=2" role="button" class="btn btn-danger">non</a> <!-- rapporte 0 point -->
-                    <a href="index.php?step=2" role="button" class="btn btn-secondary">sans avis</a> <!-- rapporte 1 point -->
-
+                    <a href="index.php?step=2&point=2" role="button" class="btn btn-success">oui</a> <!-- rapporte 2 point -->
+                    <a href="index.php?step=2&point=0" role="button" class="btn btn-danger">non</a> <!-- rapporte 0 point -->
+                    <a href="index.php?step=2&point=1" role="button" class="btn btn-secondary">sans avis</a> <!-- rapporte 1 point -->
+        
         <?php
+                    
                 }
                 if($_GET['step'] == '2'){
+                    $points_q1 = $_GET['point'];
         ?>
                     <!-- Etape 2 : A afficher uniquement une fois que l'étape 1 a été résolue -->
                     <h2>Question 2</h2>
                     <p>L'agent a-t-il compris votre problème ?</p>
-                    <a href="index.php?step=3" role="button" class="btn btn-success">oui</a> <!-- rapporte 2 point -->
-                    <a href="index.php?step=3" role="button" class="btn btn-danger">non</a> <!-- rapporte 1 point -->
-                    <a href="index.php?step=3" role="button" class="btn btn-secondary">sans avis</a> <!-- rapporte 0 point -->
+                    <a href="index.php?step=3&point=2" role="button" class="btn btn-success">oui</a> <!-- rapporte 2 point -->
+                    <a href="index.php?step=3&point=0" role="button" class="btn btn-danger">non</a> <!-- rapporte 1 point -->
+                    <a href="index.php?step=3&point=1" role="button" class="btn btn-secondary">sans avis</a> <!-- rapporte 0 point -->
 
         <?php
+                    // $total_point = $total_point + $_GET['point'];
+                    echo "<br>";
+                    var_dump($points_q1);
+                
                 }
                 if($_GET['step'] == '3'){
+                    $points_q2 = $_GET['point'];
         ?>
                     <!-- Etape 3 : A afficher uniquement une fois que l'étape 2 a été résolue -->
                     <h2>Question 3</h2>
                     <p>L'agent a-t-il résolu votre problème ?</p>
-                    <a href="index.php?step=q3oui" role="button" class="btn btn-success">oui</a> <!-- rapporte 1 point -->
-                    <a href="index.php?step=q3non" role="button" class="btn btn-danger">non</a> <!-- rapporte -1 point -->
+                    <a href="index.php?step=q3oui&point=2" role="button" class="btn btn-success">oui</a> <!-- rapporte 1 point -->
+                    <a href="index.php?step=q3non&point=0" role="button" class="btn btn-danger">non</a> <!-- rapporte -1 point -->
         <?php
+                    // $total_point = $total_point + $_GET['point'];
+                    echo "<br>";
+                    var_dump($points_q1);
+                    echo "<br>";
+                    var_dump($points_q2);
+                    
+                    
                 }
                 if($_GET['step'] == 'q3oui'){
+                    $points_q3 = $_GET['point'];
+                    echo "<br>";
+                    var_dump($points_q1);
+                    echo "<br>";
+                    var_dump($points_q2);
+                    echo "<br>";
+                    var_dump($points_q3);
+
+                    $total_points = $points_q1 + $points_q2 + $points_q3;
+                    echo "<br>";
+                    var_dump($total_points);
         ?>
                     <!-- Etape finale : A afficher si "oui" a été répondu à la question 3 ou si l'étape 4 a été résolue -->
                     <p class="mt-5">Merci pour votre notation :⭐⭐⭐⚫⚫ </p> <!-- le nombre d'étoiles représente le nombre de points cumulés -->
@@ -79,6 +104,7 @@
                     </p>
         
         <?php
+                    
                 }
                 if($_GET['step'] == 'q3non'){
         ?>
