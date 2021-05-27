@@ -23,7 +23,7 @@
 
         
 
-        <?php
+        <?php 
             if (isset($_GET['step']) == false) {
                 $_GET['step'] = '0';
             }
@@ -35,9 +35,7 @@
                     <!-- step 0 : A afficher uniquement au chargement de la page -->
                     <p>Vous avez contacté notre service client et nous aimerions avoir votre avis sur la qualité de ce service</p>
                     <p>Commencez le questionnaire : <a href="index.php?step=1" role="button" class="btn btn-success">Commencer</a></p>
-        <?php 
-                } elseif ($_GET['step'] == '1') { 
-        ?>
+        <?php   } elseif ($_GET['step'] == '1') { ?>
                     <!-- Etape 1 : A afficher uniquement une fois que le boutton "Commencer" a été pressé -->
                     <h2>Question 1</h2>
                     <p>L'agent a-t-il été agréable ?</p>
@@ -46,9 +44,7 @@
                     <a href="index.php?step=2&point=0" role="button" class="btn btn-danger">non</a> <!-- rapporte 0 point -->
                     <a href="index.php?step=2&point=1" role="button" class="btn btn-secondary">sans avis</a> <!-- rapporte 1 point -->
         
-        <?php 
-                } elseif ($_GET['step'] == '2') { 
-        ?>
+        <?php   } elseif ($_GET['step'] == '2') { ?>
                     <!-- Etape 2 : A afficher uniquement une fois que l'étape 1 a été résolue -->
                     <h2>Question 2</h2>
                     <p>L'agent a-t-il compris votre problème ?</p>
@@ -56,15 +52,13 @@
                     <a href="index.php?step=3&point=<?= $_GET['point'] ?>" role="button" class="btn btn-danger">non</a> <!-- rapporte 1 point -->
                     <a href="index.php?step=3&point=<?= $_GET['point'] + 1 ?>" role="button" class="btn btn-secondary">sans avis</a> <!-- rapporte 0 point -->
 
-        <?php 
-                } elseif ($_GET['step'] == '3') {
-                    $points_q2 = $_GET['point']; ?>
+        <?php   } elseif ($_GET['step'] == '3') { ?>
                     <!-- Etape 3 : A afficher uniquement une fois que l'étape 2 a été résolue -->
                     <h2>Question 3</h2>
                     <p>L'agent a-t-il résolu votre problème ?</p>
                     <a href="index.php?step=q3oui&point=<?= $_GET['point'] + 1 ?>" role="button" class="btn btn-success">oui</a> <!-- rapporte 1 point -->
                     <a href="index.php?step=q3non&point=<?= $_GET['point'] - 1 ?>" role="button" class="btn btn-danger">non</a> <!-- rapporte -1 point -->
-        <?php
+        <?php 
                 } elseif (($_GET['step'] == 'q3oui') || ($_GET['step'] == 'validated')) {
 
                     $stars_and_circles = '';
@@ -83,38 +77,15 @@
                         <a href="index.php?step=0" role="button" class="btn btn-danger">Recommencer</a>
                     </p>
         
-        <?php
-                } elseif ($_GET['step'] == 'q3non') { 
-        ?>
+        <?php   } elseif ($_GET['step'] == 'q3non') { ?>
                     <!-- Etape 4 : A afficher uniquement si "non" a été répondu à l'étape 3 -->
                     <p>Votre problème n'a pas été résolu.</p>
                     <p>Pour être rappelé, entrez votre numéro de téléphone dans le clavier virtuel et validez :</p>
                     <!-- Coder ici un clavier numérique permettant de saisir le numéro de téléphone -->
-
-                    
-                    
-        <?php
-                
-                    for ($i = 0; $i < 10; $i++) {
-        ?>
-                        <a href="index.php?step=q3non&point=<?= $_GET['point'] ?>&number=<?= $_GET['number'].$i ?>" role="button" class="btn btn-secondary"><?= $i ?></a>
-            
-        <?php 
-                    
-                    }
-                    
-                    function checkPhoneNumber(string $phoneNumber)
-                    {
-                        if (strlen($phoneNumber) == 10) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    }
-            
-        ?>
-                    
-
+         
+        <?php   for ($i = 0; $i < 10; $i++) { ?>
+                    <a href="index.php?step=q3non&point=<?= $_GET['point'] ?>&number=<?= $_GET['number'].$i ?>" role="button" class="btn btn-secondary"><?= $i ?></a>       
+        <?php   } ?>
                     <!-- Afficher ici le numéro de téléphone qui s'affiche au fur et à mesure de la saisie-->
                     <p>Votre numéro : #numéro de téléphone saisi#</p>
                     <?= $_GET['number'].'<br>' ?>
@@ -154,12 +125,7 @@
                         <a href="index.php?step=q3non&point=<?= $_GET['point'] ?>" role="button" class="btn btn-danger">Numero Invalide, merci ressaisir votre numero comportant 10 chiffres</a>
         <?php
                     }
-        ?>
-        <?php
                 }
-        ?>
-        <?php 
-                
             }
         ?>
     </div>
