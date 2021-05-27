@@ -28,16 +28,13 @@
             $_GET['step'] = '0';
         }
         if (isset($_GET['step'])) {
-            if ($_GET['step'] == '0') { 
-        ?> 
+            if ($_GET['step'] == '0') { ?> 
                     <h2>Questionnaire de satisfaction</h2>
 
                     <!-- step 0 : A afficher uniquement au chargement de la page -->
                     <p>Vous avez contacté notre service client et nous aimerions avoir votre avis sur la qualité de ce service</p>
                     <p>Commencez le questionnaire : <a href="index.php?step=1" role="button" class="btn btn-success">Commencer</a></p>
-        <?php 
-            } elseif ($_GET['step'] == '1') { 
-        ?>
+        <?php } elseif ($_GET['step'] == '1') { ?>
                     <!-- Etape 1 : A afficher uniquement une fois que le boutton "Commencer" a été pressé -->
                     <h2>Question 1</h2>
                     <p>L'agent a-t-il été agréable ?</p>
@@ -46,9 +43,7 @@
                     <a href="index.php?step=2&point=0" role="button" class="btn btn-danger">non</a> <!-- rapporte 0 point -->
                     <a href="index.php?step=2&point=1" role="button" class="btn btn-secondary">sans avis</a> <!-- rapporte 1 point -->
         
-        <?php 
-            } elseif ($_GET['step'] == '2') { 
-        ?>
+        <?php } elseif ($_GET['step'] == '2') { ?>
                     <!-- Etape 2 : A afficher uniquement une fois que l'étape 1 a été résolue -->
                     <h2>Question 2</h2>
                     <p>L'agent a-t-il compris votre problème ?</p>
@@ -61,8 +56,7 @@
                         1 ?>" role="button" class="btn btn-secondary">sans avis</a> <!-- rapporte 0 point -->
 
         <?php } elseif ($_GET['step'] == '3') {
-                $points_q2 = $_GET['point']; 
-        ?>
+                $points_q2 = $_GET['point']; ?>
                     <!-- Etape 3 : A afficher uniquement une fois que l'étape 2 a été résolue -->
                     <h2>Question 3</h2>
                     <p>L'agent a-t-il résolu votre problème ?</p>
@@ -84,7 +78,7 @@
                 }
 
                 // var_dump($stars_and_circles)
-        ?>
+                ?>
                     <!-- Etape finale : A afficher si "oui" a été répondu à la question 3 ou si l'étape 4 a été résolue -->
                     <p class="mt-5">Merci pour votre notation : <?= $stars_and_circles ?> </p> <!-- le nombre d'étoiles représente le nombre de points cumulés -->
 
@@ -101,28 +95,29 @@
                     <!-- Coder ici un clavier numérique permettant de saisir le numéro de téléphone -->
                     
         <?php
-                if (isset($_GET['number']) == false) {
-                    $_GET['number'] = '';
-                }
-                // $phone_number = '';
-                for ($i = 0; $i < 10; $i++) { 
+                
+                for ($i = 0; $i < 10; $i++) {
         ?>
-                        <a href="index.php?step=q3non&number=<?= $i ?>" role="button" class="btn btn-secondary"><?= $i ?></a>
+                        <a href="index.php?step=q3non&number=<?= $_GET['number'].$i ?>" role="button" class="btn btn-secondary"><?= $i ?></a>
+            
         <?php 
+                    
                 }
-                $phone_number .= $_GET['number'];
+
+            
         ?>
                     
 
                     <!-- Afficher ici le numéro de téléphone qui s'affiche au fur et à mesure de la saisie-->
                     <p>Votre numéro : #numéro de téléphone saisi#</p>
-                    <?= $phone_number ?>
-                    <a href="" role="button" class="btn btn-success">Valider</a> <!-- Validation du numéro de téléphone -->
+                    <?= $_GET['number'].'<br>' ?>
+                    <a href="index.php?step=valider" role="button" class="btn btn-success">Valider</a> <!-- Validation du numéro de téléphone -->
 
                     <p class="mt-5">
                         <a href="index.php?step=0" role="button" class="btn btn-danger">Recommencer</a>
                     </p>
-        <?php }
+        <?php 
+            }
         }
         ?>
     </div>
