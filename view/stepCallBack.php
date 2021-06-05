@@ -20,11 +20,11 @@
     'point'
 ] ?>&number=<?= correctPhoneNumber(
     $_GET['number']
-) ?>" role="button" class="btn btn-warning">Corriger</a>
+) ?>" role="button" class="btn btn-warning">Correction</a>
 
 <a href="?step=callback&point=<?= $_GET['point'] ?>&number=<?= resetPhoneNumber(
     $_GET['number']
-) ?>" role="button" class="btn btn-danger">Reset</a>
+) ?>" role="button" class="btn btn-danger">Réinitialisation</a>
 
 <p class="mt-5">
     <a href="?step=notation&point=<?= $_GET[
