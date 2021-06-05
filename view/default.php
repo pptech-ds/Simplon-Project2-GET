@@ -24,7 +24,8 @@
             require 'view/step2.php';
             require 'view/step3.php';
             require 'view/stepNotation.php';
-            require 'view/stepPhone.php';
+            require 'view/stepCallBack.php';
+            require 'view/stepCheckPhoneNumber.php';
             ?>
         </div>
     </body>
