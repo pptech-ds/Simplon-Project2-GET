@@ -29,6 +29,9 @@ php -S localhost:8000
 ![image](https://user-images.githubusercontent.com/61125395/120891919-87c97980-c60b-11eb-971c-a06d3a4a33ac.png)
 - In case Question 3 was answered "OUI"  
 ![image](https://user-images.githubusercontent.com/61125395/120891925-944dd200-c60b-11eb-86a3-7fac90db7b6f.png)
-- In case Question 3 was answered "NON"  
+- In case Question 3 was answered "NON", you will have possibiliy to add your phone number, number you are clicking will be prompt, you have possibility
+to correct the number or reset all numbers. Your given phone number will be checked when you validate, in case the phone number doesn't contain 10 numbers you will have 
+a new page saying "please correct your number". In this page you also gave possibility to skip the callback, then the notation page will apear. You also have possibility
+to retry the questionnary.  
 ![image](https://user-images.githubusercontent.com/61125395/120891956-d70faa00-c60b-11eb-906f-b334d540ed34.png)
 
