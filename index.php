@@ -1,7 +1,10 @@
 <?php
-if (isset($_GET['step']) == false) {
-    $_GET['step'] = '0';
-}
+
+require 'service/initVariables.php';
+require 'service/printNotation.php';
+require 'service/checkPhoneNumber.php';
+require 'service/correctPhoneNumber.php';
+require 'service/resetPhoneNumber.php';
 
 require 'view/default.php';
 
